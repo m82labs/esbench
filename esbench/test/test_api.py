@@ -117,7 +117,7 @@ class ApiConnTest(unittest.TestCase):
         self.assertEqual(resp.curl, "curl -XDELETE http://localhost:9200/foo/bar")
 
     def test_massage_request_path(self):
-        self.assertEqual("/", esbench.api._massage_request_path(None))        
+        self.assertEqual("/", esbench.api._massage_request_path(None))
         self.assertEqual("/foo", esbench.api._massage_request_path("foo"))
         self.assertEqual("/foo", esbench.api._massage_request_path("//foo"))
         self.assertEqual("/foo?bar", esbench.api._massage_request_path("foo?bar"))
@@ -159,11 +159,11 @@ class ApiFuncTest(unittest.TestCase):
 
     def test_cluster_get_info(self):
         resp = esbench.api.cluster_get_info(self.c)
-        self.assertEqual(resp.curl, "curl -XGET http://localhost:9200/_cluster/nodes?settings=true&os=true&process=true&jvm=true&thread_pool=true&network=true&transport=true&http=true&plugin=true")
+        self.assertEqual(resp.curl, "curl -XGET http://localhost:9200/_nodes?settings=true&os=true&process=true&jvm=true&thread_pool=true&network=true&transport=true&http=true&plugin=true")
 
     def test_cluster_get_stats(self):
         resp = esbench.api.cluster_get_stats(self.c)
-        self.assertEqual(resp.curl, "curl -XGET http://localhost:9200/_cluster/nodes/stats?indices=true&os=true&process=true&jvm=true&network=true&transport=true&http=true&fs=true&thread_pool=true")
+        self.assertEqual(resp.curl, "curl -XGET http://localhost:9200/_nodes/stats?indices=true&os=true&process=true&jvm=true&network=true&transport=true&http=true&fs=true&thread_pool=true")
 
 
 if __name__ == "__main__":
