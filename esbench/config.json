@@ -16,7 +16,7 @@
         }, 
 
         "match_description_facet_date_histogram": {
-            "facets": {
+            "aggs": {
                 "date_published": {
                     "date_histogram": {
                         "field" : "dates.date_published",

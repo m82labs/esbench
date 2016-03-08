@@ -208,13 +208,13 @@ def index_get_segments(conn, index):
 
 
 def cluster_get_info(conn):
-    path = "_cluster/nodes?settings=true&os=true&process=true&jvm=true&thread_pool=true&network=true&transport=true&http=true&plugin=true"
+    path = "_nodes?settings=true&os=true&process=true&jvm=true&thread_pool=true&network=true&transport=true&http=true&plugin=true"
     resp = conn.get(path)
     return resp
 
 
 def cluster_get_stats(conn):
-    path = "_cluster/nodes/stats?indices=true&os=true&process=true&jvm=true&network=true&transport=true&http=true&fs=true&thread_pool=true"
+    path = "_nodes/stats?indices=true&os=true&process=true&jvm=true&network=true&transport=true&http=true&fs=true&thread_pool=true"
     resp = conn.get(path)
     return resp
 
